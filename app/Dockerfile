@@ -7,12 +7,12 @@ ENV DB_HOST 172.17.0.2
 ENV DB_LINK postgres://tracuser:$DB_PASS@$DB_HOST/trac
 EXPOSE 80
 
-RUN mkdir project1
+RUN mkdir /project1
 RUN apt -y update
 RUN apt -y install python3-pip
 RUN apt  -y install libpq-dev python-dev
 RUN pip install psycopg2
-RUN mkdir trac
+RUN mkdir /trac
 COPY . /trac
 RUN pip install /trac
 CMD trac-admin $TRAC_DIR initenv $TRAC_PROJECT_NAME $DB_LINK

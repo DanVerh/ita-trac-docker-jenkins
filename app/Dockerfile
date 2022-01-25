@@ -13,7 +13,7 @@ RUN apt -y install python3-pip
 RUN apt  -y install libpq-dev python-dev
 RUN pip install psycopg2
 RUN mkdir /trac
-COPY . /trac
-RUN pip install /trac
+COPY . .
+RUN pip install .
 CMD trac-admin $TRAC_DIR initenv $TRAC_PROJECT_NAME $DB_LINK
 CMD tracd --port 80 $TRAC_DIR

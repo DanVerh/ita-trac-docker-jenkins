@@ -1,6 +1,5 @@
 FROM ubuntu:20.04
 
-WORKDIR ~/
 ENV TRAC_PROJECT_NAME trac
 ENV TRAC_DIR ~/project1
 ENV DB_PASS DevOps657

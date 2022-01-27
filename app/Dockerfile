@@ -9,10 +9,11 @@ EXPOSE 80
 
 RUN mkdir /project1
 RUN apt -y update
+RUN apt -y install git
 RUN apt -y install python3-pip
 RUN apt  -y install libpq-dev python-dev
 RUN pip install psycopg2
-COPY . .
-RUN pip install .
+RUN git clone https://github.com/edgewall/trac.git
+RUN pip install /trac
 CMD trac-admin $TRAC_DIR initenv $TRAC_PROJECT_NAME $DB_LINK
 CMD tracd --port 80 $TRAC_DIR

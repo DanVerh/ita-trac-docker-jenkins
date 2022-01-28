@@ -14,6 +14,8 @@ RUN apt-get -y install python3-pip
 RUN apt-get  -y install libpq-dev python-dev
 RUN pip install psycopg2
 RUN mkdir /trac
+RUN touch /project1/VERSION
+RUN echo "Trac Environment Version 1" > /project1/VERSION
 COPY . /trac
 RUN pip install ./trac
 CMD trac-admin $TRAC_DIR initenv $TRAC_PROJECT_NAME $DB_LINK

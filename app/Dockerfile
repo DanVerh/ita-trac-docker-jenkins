@@ -16,6 +16,5 @@ RUN pip install psycopg2
 RUN mkdir /trac
 COPY . /trac
 RUN pip install ./trac
-CMD ./trac/deploy.sh
-#CMD trac-admin $TRAC_DIR initenv $TRAC_PROJECT_NAME $DB_LINK
-#CMD tracd --port 80 $TRAC_DIR
+RUN trac-admin $TRAC_DIR initenv $TRAC_PROJECT_NAME $DB_LINK
+CMD tracd --port 80 $TRAC_DIR

@@ -15,7 +15,7 @@ services:
     build: app/
     links:
       - "db"
-    command: ./app/deploy.sh
+    command: bash -c "trac-admin /project1 initenv trac postgres://tracuser:DevOps657@db/trac && tracd --port 80 /project1"
     ports: 
       - 80:80
     depends_on:

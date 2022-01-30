@@ -13,6 +13,9 @@ services:
 
   app:
     build: app/
+    links:
+      - "db"
+    command: ./app/deploy.sh
     ports: 
       - 80:80
     depends_on:

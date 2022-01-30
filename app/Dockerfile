@@ -16,6 +16,6 @@ RUN mkdir /trac
 COPY . /trac
 RUN chmod +x /trac/deploy.sh
 RUN pip install ./trac
-CMD ./trac/deploy.sh
+#CMD ./trac/deploy.sh
 #CMD trac-admin $TRAC_DIR initenv $TRAC_PROJECT_NAME $DB_LINK
 #CMD tracd --port 80 $TRAC_DIR

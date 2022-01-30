@@ -4,6 +4,8 @@ services:
   db:
     image: postgres:latest
     restart: always
+    ports:
+      - 5432:5432
     environment:
       - POSTGRES_USER=tracuser
       - POSTGRES_PASSWORD=DevOps657
@@ -11,7 +13,6 @@ services:
 
   app:
     build: app/
-    command: bash -c "trac-admin /project1 initenv trac postgres://tracuser:DevOps657@172.18.0.2/trac && tracd --port 80 /project1"
     ports: 
       - 80:80
     depends_on:

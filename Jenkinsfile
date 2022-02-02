@@ -1,23 +1,21 @@
 pipeline {
-  agent any
-  
-  stages{
-    stage('Start DB'){
-      steps{
-        docker-compose up -d db 
-      }
-    }
+    agent any
 
-    stage('Build app'){
-      steps{
-        docker-compose build
-      }
+    stages {
+        stage('Start DB') {
+            steps {
+                docker-compose up -d db 
+            }
+        }
+        stage('Build app') {
+            steps {
+                docker-compose build
+            }
+        }
+        stage('Start app') {
+            steps {
+                docker-compose up -d app
+            }
+        }
     }
-
-    stage('Start app'){
-      steps{
-        docker-compose up -d app
-      }
-    }
-  }
 }

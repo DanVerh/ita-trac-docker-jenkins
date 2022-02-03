@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Start DB') {
             steps {
+                mkdir ~/db
                 docker-compose up -d db 
             }
         }

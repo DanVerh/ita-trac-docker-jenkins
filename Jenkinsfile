@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'trac' }
 
     stages {
         stage('Start DB') {
